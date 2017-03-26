@@ -1,0 +1,70 @@
+---
+layout: post
+title: Firefox OS, Keon 폰 펌웨어 업데이트 하기
+---
+
+<p><img src="http://www.geeksphone.com/wp-content/themes/gp/img/landing-page/keon_mobile01.jpg" title="Keon Phone" alt="Keon Phone"></p><p> 요즘 Firefox SIG 모임으로, Keon 폰을 만지작 거릴 수 있게 되었습니다. 오늘은 Keon 폰에 펌웨어를 업데이트 해본 내용을 남겨 봅니다.</p><p> 우선 참고 페이지 <a href="http://mozillamyanmar.org/2013/06/02/how-to-flash-your-keon-into-latest-image/">How to flash your keon into latest image</a> 를 대충 살펴보고,</p>
+
+<ol>
+<li><a href="http://downloads.geeksphone.com/keon/latest.html">최신 이미지 다운로드 링크</a> &lt;= 요기에서 최신 이미지 링크를 다운받고,</li>
+<li>Android SDK platform-tools 폴더를 PATH에 추가.
+<code>PATH=$PATH:/Users/sangpire/play/android-sdk-macosx/platform-tools</code></li>
+<li>그리고 다운로드 받은 이미지에서 압축을 풀고 해당 폴더에서 <code>flash_mac.sh</code> 을 실행.</li>
+</ol>
+
+
+<pre><code>rosebook:~ sangpire$ cd images-keon-2013-07-12.Gecko-6565d51.Gaia-054cdc2/
+rosebook:images-keon-2013-07-12.Gecko-6565d51.Gaia-054cdc2 sangpire$ ls
+AdbWinApi.dll       fastboot        recovery.img
+AdbWinUsbApi.dll    fastboot.exe        system.img
+adb         flash.bat       userdata.img
+adb.exe         flash.sh
+boot.img        flash_mac.sh
+rosebook:images-keon-2013-07-12.Gecko-6565d51.Gaia-054cdc2 sangpire$ ./flash_mac.sh
+&lt; waiting for device &gt;
+sending 'boot' (3424 KB)...
+OKAY [  0.331s]
+writing 'boot'...
+OKAY [  0.628s]
+finished. total time: 0.959s
+sending 'userdata' (26364 KB)...
+OKAY [  2.568s]
+writing 'userdata'...
+OKAY [  4.913s]
+finished. total time: 7.481s
+sending 'system' (137568 KB)...
+OKAY [ 13.310s]
+writing 'system'...
+OKAY [ 26.134s]
+finished. total time: 39.444s
+erasing 'cache'...
+OKAY [  0.006s]
+finished. total time: 0.006s
+rebooting...
+
+finished. total time: 0.001s
+rosebook:images-keon-2013-07-12.Gecko-6565d51.Gaia-054cdc2 sangpire$
+</code></pre>
+
+<h1>짜잔!</h1>
+
+<span class="imageblock" style="display:inline-block;width:409px;;height:auto"><span dir="http://cfile25.uf.tistory.com/original/2420BE385203AB570147A1" rel="lightbox" target="_blank"><img src="http://cfile25.uf.tistory.com/image/2420BE385203AB570147A1" filemime="image/jpeg" filename="IMG_20130808_232619.jpg" height="545" width="409"/></span></span><div class="entry-ccl" style="clear: both; text-align: right; margin-bottom: 10px">
+	<a href="http://creativecommons.org/licenses/by-nd/4.0/deed.ko" target="_blank" style="text-decoration: none">
+	<img id="ccl-icon-143-0" class="entry-ccl-by" src="http://i1.daumcdn.net/cfs.tistory/resource/437/static/admin/editor/ccl_black01.png" alt="저작자 표시"/>
+	<img id="ccl-icon-143-1" class="entry-ccl-nd" src="http://i1.daumcdn.net/cfs.tistory/resource/437/static/admin/editor/ccl_black03.png" alt="변경 금지"/>
+	<!--
+	<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+		<Work rdf:about="">
+			<license rdf:resource="http://creativecommons.org/licenses/by-nd/2.0/kr/" />
+		</Work>
+		<License rdf:about="http://creativecommons.org/licenses/by-nd/">
+			<permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+			<permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+			<requires rdf:resource="http://web.resource.org/cc/Notice"/>
+			<requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+			<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+		</License>
+	</rdf:RDF>
+	-->
+	</a>
+</div>

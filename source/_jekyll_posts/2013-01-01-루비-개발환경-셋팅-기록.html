@@ -1,0 +1,116 @@
+---
+layout: post
+title: "루비 개발환경 셋팅 기록"
+---
+
+<h2>첫번째, RVM(Ruby Version Manager) 설치</h2>
+
+<p>어떻게 설치하나 <a href="https://rvm.io/">RVM 홈페이지</a>에 방문해 보니, 아래 명령을 실행해서 설치하라고 나오더군요.</p>
+
+<pre><code>\curl -L https://get.rvm.io | bash -s stable --ruby
+</code></pre>
+
+<p>그래서 고민없이 실행해 보았습니다. 아래는 모두 위 명령을 실행한 후 나타난 메시지 입니다.</p>
+
+<pre><code>rosebook:~ rose$ \curl -L https://get.rvm.io | bash -s stable --ruby
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   185  100   185    0     0     92      0  0:00:02  0:00:02 --:--:--   180
+100 10956  100 10956    0     0   2573      0  0:00:04  0:00:04 --:--:--  8008
+Please read and follow further instructions.
+Press ENTER to continue.
+Downloading RVM from wayneeseguin branch stable
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   131  100   131    0     0     51      0  0:00:02  0:00:02 --:--:--    66
+100 1243k  100 1243k    0     0   157k      0  0:00:07  0:00:07 --:--:--  338k
+
+Upgrading the RVM installation in /Users/rose/.rvm/
+    RVM PATH line found in /Users/rose/.bashrc /Users/rose/.zshenv.
+    RVM sourcing line found in /Users/rose/.bash_profile /Users/rose/.zprofile.
+</code></pre>
+
+<p>rvm 은 ~/.rvm 에 설치 되고,
+rvm 에 대한 PATH 는 ~/.bashrc 과 ~/.zshenv 에,
+rvm 소스를 읽어 들이는 부분은 ~/.bash_profile 과 ~/.zprofile 에 추가되었다는 메시지가 보입니다.</p>
+
+<pre><code>Upgrade Notes:
+
+  * If you wish to get more default(global) gems installed, install RVM with this flag: --with-gems="pry vagrant"
+    this option is remembered, it's enough to use it once.
+
+
+# RVM:  Shell scripts enabling management of multiple ruby environments.
+# RTFM: https://rvm.io/
+# HELP: http://webchat.freenode.net/?channels=rvm (#rvm on irc.freenode.net)
+# Cheatsheet: http://cheat.errtheblog.com/s/rvm/
+# Screencast: http://screencasts.org/episodes/how-to-use-rvm
+</code></pre>
+
+<p>위에 스크린케스트는 설치 명령어나 출력 메시지가 지금과는 다르지만 rvm 이해에 도움이 되더군요.</p>
+
+<pre><code># In case of any issues read output of 'rvm requirements' and/or 'rvm notes'
+
+Upgrade of RVM in /Users/rose/.rvm/ is complete.
+
+# BYUN Sangpil,
+#
+#   Thank you for using RVM!
+#   I sincerely hope that RVM helps to make your life easier and
+#   more enjoyable!!!
+#
+# ~Wayne
+</code></pre>
+
+<p>Thank you Wayne E. Seguin and Thank you Michal Papis.</p>
+
+<pre><code>rvm 1.17.6 (stable) by Wayne E. Seguin &lt;wayneeseguin@gmail.com&gt;, Michal Papis &lt;mpapis@gmail.com&gt; [https://rvm.io/]
+
+No binary rubies available for: downloads/ruby-1.9.3-p362.
+Continuing with compilation. Please read 'rvm mount' to get more information on binary rubies.
+Installing Ruby from source to: /Users/rose/.rvm/rubies/ruby-1.9.3-p362, this may take a while depending on your cpu(s)...
+ruby-1.9.3-p362 - #downloading ruby-1.9.3-p362, this may take a while depending on your connection...
+ruby-1.9.3-p362 - #extracting ruby-1.9.3-p362 to /Users/rose/.rvm/src/ruby-1.9.3-p362
+ruby-1.9.3-p362 - #extracted to /Users/rose/.rvm/src/ruby-1.9.3-p362
+ruby-1.9.3-p362 - #configuring
+ruby-1.9.3-p362 - #compiling
+ruby-1.9.3-p362 - #installing
+Removing old Rubygems files...
+Installing rubygems-1.8.24 for ruby-1.9.3-p362 ...
+Installation of rubygems completed successfully.
+Saving wrappers to '/Users/rose/.rvm/bin'.
+ruby-1.9.3-p362 - #adjusting #shebangs for (gem irb erb ri rdoc testrb rake).
+ruby-1.9.3-p362 - #importing default gemsets (/Users/rose/.rvm/gemsets/), this may take time ...
+Install of ruby-1.9.3-p362 - #complete
+Creating alias default for ruby-1.9.3-p362.
+Recording alias default for ruby-1.9.3-p362.
+Creating default links/files
+Saving wrappers to '/Users/rose/.rvm/bin'.
+
+  * To start using RVM you need to run `source /Users/rose/.rvm/scripts/rvm`
+    in all your open shell windows, in rare cases you need to reopen all shell windows.
+rosebook:~ rose$
+</code></pre>
+
+<p>기본적으로 ruby 1.9.3 버전과, rubygems-1.8.24 를 설치해 줬습니다.</p>
+
+<p>루비 개발환경 셋팅 끝!</p><div class="entry-ccl" style="clear: both; text-align: right; margin-bottom: 10px">
+	<a href="http://creativecommons.org/licenses/by-nd/4.0/deed.ko" target="_blank" style="text-decoration: none">
+	<img id="ccl-icon-141-0" class="entry-ccl-by" src="http://i1.daumcdn.net/cfs.tistory/resource/437/static/admin/editor/ccl_black01.png" alt="저작자 표시"/>
+	<img id="ccl-icon-141-1" class="entry-ccl-nd" src="http://i1.daumcdn.net/cfs.tistory/resource/437/static/admin/editor/ccl_black03.png" alt="변경 금지"/>
+	<!--
+	<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+		<Work rdf:about="">
+			<license rdf:resource="http://creativecommons.org/licenses/by-nd/2.0/kr/" />
+		</Work>
+		<License rdf:about="http://creativecommons.org/licenses/by-nd/">
+			<permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+			<permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+			<requires rdf:resource="http://web.resource.org/cc/Notice"/>
+			<requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+			<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+		</License>
+	</rdf:RDF>
+	-->
+	</a>
+</div>

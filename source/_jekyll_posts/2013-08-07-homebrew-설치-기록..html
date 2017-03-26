@@ -1,0 +1,52 @@
+---
+layout: post
+title: Homebrew 설치 기록.
+---
+
+<h1><a href="http://brew.sh/">Homebrew</a> 설치 기록</h1>
+
+<pre><code>my:local sangpire$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+==&gt; This script will install:
+/usr/local/bin/brew
+/usr/local/Library/...
+/usr/local/share/man/man1/brew.1
+
+Press ENTER to continue or any other key to abort
+==&gt; Downloading and Installing Homebrew...
+remote: Counting objects: 122767, done.
+remote: Compressing objects: 100% (59921/59921), done.
+remote: Total 122767 (delta 86197), reused 95806 (delta 61866)
+Receiving objects: 100% (122767/122767), 19.44 MiB | 1.69 MiB/s, done.
+Resolving deltas: 100% (86197/86197), done.
+From https://github.com/mxcl/homebrew
+ * [new branch]      master     -&gt; origin/master
+HEAD is now at d54d3f3 qt: don't use SSSE3 with superenv.
+==&gt; Installation successful!
+You should run `brew doctor' *before* you install anything.
+Now type: brew help
+</code></pre>
+
+<p><code>brew doctory</code> 결과</p>
+
+<pre><code>my:local sangpire$ brew doctor
+Your system is ready to brew.
+</code></pre><div class="entry-ccl" style="clear: both; text-align: right; margin-bottom: 10px">
+	<a href="http://creativecommons.org/licenses/by-nd/4.0/deed.ko" target="_blank" style="text-decoration: none">
+	<img id="ccl-icon-142-0" class="entry-ccl-by" src="http://i1.daumcdn.net/cfs.tistory/resource/437/static/admin/editor/ccl_black01.png" alt="저작자 표시"/>
+	<img id="ccl-icon-142-1" class="entry-ccl-nd" src="http://i1.daumcdn.net/cfs.tistory/resource/437/static/admin/editor/ccl_black03.png" alt="변경 금지"/>
+	<!--
+	<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+		<Work rdf:about="">
+			<license rdf:resource="http://creativecommons.org/licenses/by-nd/2.0/kr/" />
+		</Work>
+		<License rdf:about="http://creativecommons.org/licenses/by-nd/">
+			<permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+			<permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+			<requires rdf:resource="http://web.resource.org/cc/Notice"/>
+			<requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+			<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+		</License>
+	</rdf:RDF>
+	-->
+	</a>
+</div>
