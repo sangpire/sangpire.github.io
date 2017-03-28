@@ -70,7 +70,6 @@ theme: typescript
 deploy:
   type: git
   repo: git@github.com:sangpire/sangpire.github.io.git
-  branch: gh-pages
 
 # Generator json content
 jsonContent:
