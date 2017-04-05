@@ -34,7 +34,7 @@ search:
   baidu_api_id:
 
 # Miscellaneous
-google_analytics:
+google_analytics: UA-96857641-1
 favicon: /favicon.png
 author_url: http://rakugaki.me
 
