@@ -8,6 +8,9 @@ navigation:
 - name: Home
   slug: home
   url: /
+- name: thinking
+  slug: thinking
+  url: /thinking
 - name: Sites
   slug: sites
   url: /sites
