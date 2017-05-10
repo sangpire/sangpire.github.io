@@ -4,18 +4,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Tag: java spring locale | sangpire.note</title>
+  <title>thinking | sangpire.note</title>
   <meta name="description" content="A minimal hexo theme." />
   <meta name="keywords" content="hexo,theme,typescript,otakism,otaku" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="sangpire.note">
-<meta property="og:url" content="http://sangpire.github.io/tags/java-spring-locale/index.html">
+  <meta name="description" content="주변을 잘 정리해 놓자. - 2017. 4. 9
+가장 쉬운 정리는 버리고 잊는 것이다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="thinking">
+<meta property="og:url" content="http://sangpire.github.io/thinking/index.html">
 <meta property="og:site_name" content="sangpire.note">
+<meta property="og:description" content="주변을 잘 정리해 놓자. - 2017. 4. 9
+가장 쉬운 정리는 버리고 잊는 것이다.">
+<meta property="og:updated_time" content="2017-05-10T14:25:10.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sangpire.note">
+<meta name="twitter:title" content="thinking">
+<meta name="twitter:description" content="주변을 잘 정리해 놓자. - 2017. 4. 9
+가장 쉬운 정리는 버리고 잊는 것이다.">
   
   
     <link rel="icon" href="/favicon.png">
@@ -94,52 +101,35 @@ ga('send', 'pageview');
     <script>setLoadingBarProgress(40);</script>
     
     <main id="main" role="main">
-      
-	<section class="page-header tag">
-    <h1>- <span>java spring locale</span> -</h1>
-  </section>
-
-
-
-
-
-
-<section class="post-list">
-	
-    <article class="post ">
-
-  
-  <h2 class="title">
-    <a href="/2016/05/16/SpringFramework/">
-      How to obtain a current user locale
+      <article id="page-undefined"
+  class="post article white-box article-type-page"
+  itemscope itemprop="blogPost">
+	<h2 class="title">
+  	<a href="/thinking/index.html">
+    	thinking
     </a>
   </h2>
-  
-  <time>
-    5월 16, 2016
-  </time>
-  <section class="content">
-	  <p>처음에는 <code>ServletRequest</code> 에서 가져왔다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Locale locale = request.getLocale();</div></pre></td></tr></table></figure>
-<p>그런데 이 녀석이, <code>LocaleResolver</code> 빈이 설정한 값을 제대로 가져오지 못하더라는;</p>
-<p>아래 스택오버플로우 답변처럼 하니 잘 됨.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Locale locale = LocaleContextHolder.getLocale();</div></pre></td></tr></table></figure>
-<p>쓰레드 로컬에서 가져온거라고 하는데,.. 쓰레드 로컬에 대해서도 좀 알아봐야겠다.</p>
-<p><a href="http://stackoverflow.com/a/16106304/693195" target="_blank" rel="external">Stackoverflow</a></p>
+	<time>
+	  4월 9, 2017
+	</time>
+	<section class="content">
+  	<div class="article-entry" itemprop="articleBody">
+    	<ul>
+<li>주변을 잘 정리해 놓자. - 2017. 4. 9<ul>
+<li>가장 쉬운 정리는 버리고 잊는 것이다.</li>
+</ul>
+</li>
+</ul>
 
+  	</div>
 
-    
-    
-    
-	  <div class="tags">
-      <a class="tag-link" href="/tags/java-spring-locale/">java spring locale</a>
+	  <div class="article-tags tags">
+		  
 	  </div>
-    
-
-  </section>
+	</section>
 </article>
-  
-</section>
+
+
 
 
       <script>setLoadingBarProgress(60);</script>

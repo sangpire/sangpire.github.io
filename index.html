@@ -75,6 +75,10 @@ ga('send', 'pageview');
           Home
         </a>
       
+        <a href="/thinking" class="nav-thinking nav">
+          thinking
+        </a>
+      
         <a href="/sites" class="nav-sites nav">
           Sites
         </a>
@@ -98,6 +102,51 @@ ga('send', 'pageview');
 
 <section class="post-list">
 	
+    <article class="post ">
+
+  
+  <h2 class="title">
+    <a href="/2017/05/10/findup/">
+      프로젝트, findup (진행중)
+    </a>
+  </h2>
+  
+  <time>
+    5월 10, 2017
+  </time>
+  <section class="content">
+	  <p>사진이 참 많아졌다. 백업하다 다시 가져오고 하다보니, 중복도 많아지고, 파일을 정리할 수 있는 프로그램을 개발해 보고 싶었다.</p>
+<p>프로젝트 명 <strong>find</strong> (d)<strong>up</strong>(lications)<br>깃헙 주소: <a href="https://github.com/sangpire/findup" target="_blank" rel="external">https://github.com/sangpire/findup</a></p>
+<p>글을 쓰기로 한 현재 상태는..<br>특정 폴더(<code>File</code> 객체)를 인자로 넘겨주면, 해당 폴더의 파일을 모두 나열하고 있는 상태. 즉, 아래 함수 하나 정도 만들어져 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">lookupDir</span><span class="params">(Integer depth, File dir)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (depth &gt; <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    String margin = String.join(<span class="string">""</span>, Collections.nCopies(depth, <span class="string">"  "</span>));</div><div class="line">    File[] childFileList = dir.listFiles();</div><div class="line">    <span class="keyword">if</span> (childFileList == <span class="keyword">null</span>) &#123;</div><div class="line">        String fileMetaInfos =String.format(<span class="string">"%sEmpty!?\n"</span>, margin);</div><div class="line">        System.out.print(fileMetaInfos);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(File file: childFileList) &#123;</div><div class="line"></div><div class="line">        String fileMetaInfos =String.format(<span class="string">"%s%s - %s\n"</span>, margin, file.isDirectory() ? <span class="string">"d"</span> : <span class="string">"-"</span> ,  file.getAbsolutePath());</div><div class="line">        System.out.print(fileMetaInfos);</div><div class="line">        <span class="keyword">if</span> (file.exists() &amp;&amp; file.isDirectory()) &#123;</div><div class="line">            lookupDir(depth + <span class="number">1</span>, file);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>여기까지 - 2017. 5. 10</p>
+<h2 id="역할에-따른-코드-분리"><a href="#역할에-따른-코드-분리" class="headerlink" title="역할에 따른 코드 분리."></a>역할에 따른 코드 분리.</h2><p>추가로 수정하고 싶은 부분</p>
+<ul>
+<li>파일만 전문적으로 가져오는 부분을 만들어 보자.</li>
+<li>실제로 뭔가를 할 녀석을 추상화 해서 만들어보자.<ul>
+<li>메서드로는 다음과 같은게 필요하지 않을까?<ul>
+<li>(필터링) 이 파일 있는데 너 관심 있니?</li>
+<li>(액션) 이 파일이 그 파일이야. 지지고 볶고 하삼.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>적고보니,.. 뭔가 할 녀석은.</p>
+<ul>
+<li>이 파일 있어 필요하면 쓰고 관심 밖이면 안써도 괜찮아. 도 충분할 듯.</li>
+</ul>
+<p>여기까지 해보자.<br>그 전에 우선 파일명도 좀 바꾸고, <del>테스트</del> 좀 더 쉽게 실행할 수 있도록 테스트 코드도 추가했다. <a href="https://github.com/sangpire/findup/commit/7c55b3d4a1f77c708a8318bb3b329f4d742d425f" target="_blank" rel="external">커밋</a></p>
+<p>적용 완료. <a href="https://github.com/sangpire/findup/commit/8fc77f40186d3a9678e08dd2c6312408380b0c8e" target="_blank" rel="external">커밋</a> - 2017. 5. 11</p>
+
+
+    
+    
+    
+
+  </section>
+</article>
+  
     <article class="post ">
 
   
@@ -221,6 +270,32 @@ ga('send', 'pageview');
 
   
   <h2 class="title">
+    <a href="/2016/05/16/velocity-spring-toolbox/">
+      Velocity Toolbox 생성과정.
+    </a>
+  </h2>
+  
+  <time>
+    5월 16, 2016
+  </time>
+  <section class="content">
+	  <img src="/2016/05/16/velocity-spring-toolbox/velocityToolInitSequence.png" alt="생성과정" title="생성과정">
+
+    
+    
+    
+	  <div class="tags">
+      <a class="tag-link" href="/tags/java-spring-velocity-toolbox/">java spring velocity toolbox</a>
+	  </div>
+    
+
+  </section>
+</article>
+  
+    <article class="post ">
+
+  
+  <h2 class="title">
     <a href="/2016/05/16/SpringFramework/">
       How to obtain a current user locale
     </a>
@@ -244,32 +319,6 @@ ga('send', 'pageview');
     
 	  <div class="tags">
       <a class="tag-link" href="/tags/java-spring-locale/">java spring locale</a>
-	  </div>
-    
-
-  </section>
-</article>
-  
-    <article class="post ">
-
-  
-  <h2 class="title">
-    <a href="/2016/05/16/velocity-spring-toolbox/">
-      Velocity Toolbox 생성과정.
-    </a>
-  </h2>
-  
-  <time>
-    5월 16, 2016
-  </time>
-  <section class="content">
-	  <img src="/2016/05/16/velocity-spring-toolbox/velocityToolInitSequence.png" alt="생성과정" title="생성과정">
-
-    
-    
-    
-	  <div class="tags">
-      <a class="tag-link" href="/tags/java-spring-velocity-toolbox/">java spring velocity toolbox</a>
 	  </div>
     
 
