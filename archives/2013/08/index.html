@@ -139,6 +139,44 @@ ga('send', 'pageview');
 
   
   <h2 class="title">
+    <a href="/2013/08/11/node-install/">
+      nvm 으로 node 설치하기.
+    </a>
+  </h2>
+  
+  <time>
+    8월 11, 2013
+  </time>
+  <section class="content">
+	  <p><strong>ruby</strong> 에 <strong>rvm</strong> 이 있고, <strong>perl</strong> 에 <strong>perlbrew</strong> 가 있는 것 처럼 <strong>node</strong> 에도 <strong><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></strong> 이 있더군요.</p>
+<p>우선 홈페이지에 설명대로, 설치 스크립트를 실행하였습니다.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure>
+<p>설치하고 나면, <code>.bash_profile</code> 에 다음과 같은 명령이 추가된 것을 확인할 수 있습니다.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[ <span class="_">-s</span> /Users/sangpire/.nvm/nvm.sh ]] &amp;&amp; . /Users/sangpire/.nvm/nvm.sh <span class="comment"># This loads NVM</span></div></pre></td></tr></table></figure>
+<p>그리고, 설정 파일 적용을 위해, 터미널을 재시작</p>
+<h1 id="본격적인-nvm-실행"><a href="#본격적인-nvm-실행" class="headerlink" title="본격적인 nvm 실행."></a>본격적인 nvm 실행.</h1><p>우선 <strong>nvm</strong> 명령을 실행하면, 다음과 같은 도움말이 나타납니다.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">rosebook:Vibration sangpire$ nvm</div><div class="line"></div><div class="line">Node Version Manager</div><div class="line"></div><div class="line">Usage:</div><div class="line">    nvm <span class="built_in">help</span>                    Show this message</div><div class="line">    nvm install [<span class="_">-s</span>] &lt;version&gt;  Download and install a &lt;version&gt;</div><div class="line">    nvm uninstall &lt;version&gt;     Uninstall a version</div><div class="line">    nvm use &lt;version&gt;           Modify PATH to use &lt;version&gt;</div><div class="line">    nvm run &lt;version&gt; [&lt;args&gt;]  Run &lt;version&gt; with &lt;args&gt; as arguments</div><div class="line">    nvm ls                      List installed versions</div><div class="line">    nvm ls &lt;version&gt;            List versions matching a given description</div><div class="line">    nvm ls-remote               List remote versions available <span class="keyword">for</span> install</div><div class="line">    nvm deactivate              Undo effects of NVM on current shell</div><div class="line">    nvm <span class="built_in">alias</span> [&lt;pattern&gt;]       Show all aliases beginning with &lt;pattern&gt;</div><div class="line">    nvm <span class="built_in">alias</span> &lt;name&gt; &lt;version&gt;  Set an <span class="built_in">alias</span> named &lt;name&gt; pointing to &lt;version&gt;</div><div class="line">    nvm <span class="built_in">unalias</span> &lt;name&gt;          Deletes the <span class="built_in">alias</span> named &lt;name&gt;</div><div class="line">    nvm copy-packages &lt;version&gt; Install global NPM packages contained <span class="keyword">in</span> &lt;version&gt; to current version</div><div class="line"></div><div class="line">Example:</div><div class="line">    nvm install v0.4.12         Install a specific version number</div><div class="line">    nvm use 0.2                 Use the latest available 0.2.x release</div><div class="line">    nvm run 0.4.12 myApp.js     Run myApp.js using node v0.4.12</div><div class="line">    nvm <span class="built_in">alias</span> default 0.4       Auto use the latest installed v0.4.x version</div><div class="line"></div><div class="line">rosebook:Vibration sangpire$</div></pre></td></tr></table></figure>
+<p>이 명령중, <code>ls-remote</code> 로 설치 가능한 버전을 확인하고, <code>install</code> 로 설치하면 완료.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install 0.10</div></pre></td></tr></table></figure>
+<p>현재 <code>ls-remote</code> 명령을 실행하면, <em>v0.11.5</em> 까지 나타나지만, 설치해서 <strong>npm</strong> 으로 모듈을 설치하려 하니 오류가 좀 있어서, <em>v0.10</em> 을 설치 했습니다. (홈페이지에도, 현재 버전이 <em>v0.10.15</em> 라고 나오더군요.)</p>
+<p>설치 하고, <em>v0.10.x</em> 를 사용하겠다고 아래와 같이 입력하면 설정 완료.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use 0.10</div></pre></td></tr></table></figure>
+<p>설명 마지막에 있는 것처럼 <code>alias</code> 도 설정해 보고,</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm <span class="built_in">alias</span> default 0.11</div></pre></td></tr></table></figure>
+<p>재미난 모듈들을 설치해보면 끝!.</p>
+
+
+    
+    
+    
+
+  </section>
+</article>
+  
+    <article class="post ">
+
+  
+  <h2 class="title">
     <a href="/2013/08/11/Bash/">
       Bash
     </a>
@@ -178,44 +216,6 @@ ga('send', 'pageview');
   </section>
 </article>
   
-    <article class="post ">
-
-  
-  <h2 class="title">
-    <a href="/2013/08/11/node-install/">
-      nvm 으로 node 설치하기.
-    </a>
-  </h2>
-  
-  <time>
-    8월 11, 2013
-  </time>
-  <section class="content">
-	  <p><strong>ruby</strong> 에 <strong>rvm</strong> 이 있고, <strong>perl</strong> 에 <strong>perlbrew</strong> 가 있는 것 처럼 <strong>node</strong> 에도 <strong><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a></strong> 이 있더군요.</p>
-<p>우선 홈페이지에 설명대로, 설치 스크립트를 실행하였습니다.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://raw.github.com/creationix/nvm/master/install.sh | sh</div></pre></td></tr></table></figure>
-<p>설치하고 나면, <code>.bash_profile</code> 에 다음과 같은 명령이 추가된 것을 확인할 수 있습니다.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[ <span class="_">-s</span> /Users/sangpire/.nvm/nvm.sh ]] &amp;&amp; . /Users/sangpire/.nvm/nvm.sh <span class="comment"># This loads NVM</span></div></pre></td></tr></table></figure>
-<p>그리고, 설정 파일 적용을 위해, 터미널을 재시작</p>
-<h1 id="본격적인-nvm-실행"><a href="#본격적인-nvm-실행" class="headerlink" title="본격적인 nvm 실행."></a>본격적인 nvm 실행.</h1><p>우선 <strong>nvm</strong> 명령을 실행하면, 다음과 같은 도움말이 나타납니다.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">rosebook:Vibration sangpire$ nvm</div><div class="line"></div><div class="line">Node Version Manager</div><div class="line"></div><div class="line">Usage:</div><div class="line">    nvm <span class="built_in">help</span>                    Show this message</div><div class="line">    nvm install [<span class="_">-s</span>] &lt;version&gt;  Download and install a &lt;version&gt;</div><div class="line">    nvm uninstall &lt;version&gt;     Uninstall a version</div><div class="line">    nvm use &lt;version&gt;           Modify PATH to use &lt;version&gt;</div><div class="line">    nvm run &lt;version&gt; [&lt;args&gt;]  Run &lt;version&gt; with &lt;args&gt; as arguments</div><div class="line">    nvm ls                      List installed versions</div><div class="line">    nvm ls &lt;version&gt;            List versions matching a given description</div><div class="line">    nvm ls-remote               List remote versions available <span class="keyword">for</span> install</div><div class="line">    nvm deactivate              Undo effects of NVM on current shell</div><div class="line">    nvm <span class="built_in">alias</span> [&lt;pattern&gt;]       Show all aliases beginning with &lt;pattern&gt;</div><div class="line">    nvm <span class="built_in">alias</span> &lt;name&gt; &lt;version&gt;  Set an <span class="built_in">alias</span> named &lt;name&gt; pointing to &lt;version&gt;</div><div class="line">    nvm <span class="built_in">unalias</span> &lt;name&gt;          Deletes the <span class="built_in">alias</span> named &lt;name&gt;</div><div class="line">    nvm copy-packages &lt;version&gt; Install global NPM packages contained <span class="keyword">in</span> &lt;version&gt; to current version</div><div class="line"></div><div class="line">Example:</div><div class="line">    nvm install v0.4.12         Install a specific version number</div><div class="line">    nvm use 0.2                 Use the latest available 0.2.x release</div><div class="line">    nvm run 0.4.12 myApp.js     Run myApp.js using node v0.4.12</div><div class="line">    nvm <span class="built_in">alias</span> default 0.4       Auto use the latest installed v0.4.x version</div><div class="line"></div><div class="line">rosebook:Vibration sangpire$</div></pre></td></tr></table></figure>
-<p>이 명령중, <code>ls-remote</code> 로 설치 가능한 버전을 확인하고, <code>install</code> 로 설치하면 완료.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install 0.10</div></pre></td></tr></table></figure>
-<p>현재 <code>ls-remote</code> 명령을 실행하면, <em>v0.11.5</em> 까지 나타나지만, 설치해서 <strong>npm</strong> 으로 모듈을 설치하려 하니 오류가 좀 있어서, <em>v0.10</em> 을 설치 했습니다. (홈페이지에도, 현재 버전이 <em>v0.10.15</em> 라고 나오더군요.)</p>
-<p>설치 하고, <em>v0.10.x</em> 를 사용하겠다고 아래와 같이 입력하면 설정 완료.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm use 0.10</div></pre></td></tr></table></figure>
-<p>설명 마지막에 있는 것처럼 <code>alias</code> 도 설정해 보고,</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm <span class="built_in">alias</span> default 0.11</div></pre></td></tr></table></figure>
-<p>재미난 모듈들을 설치해보면 끝!.</p>
-
-
-    
-    
-    
-
-  </section>
-</article>
-  
 </section>
 
 
@@ -230,6 +230,11 @@ ga('send', 'pageview');
 	<div class="social-wrapper">
   	
       
+        <a href="mailto:sangpire@gmail.com" class="social email"
+          target="_blank" rel="external">
+          <span class="icon icon-email"></span>
+        </a>
+      
         <a href="https://github.com/sangpire" class="social github"
           target="_blank" rel="external">
           <span class="icon icon-github"></span>
@@ -243,11 +248,6 @@ ga('send', 'pageview');
         <a href="/atom.xml" class="social rss"
           target="_blank" rel="external">
           <span class="icon icon-rss"></span>
-        </a>
-      
-        <a href="http://weibo.com/otakism/" class="social sina-weibo"
-          target="_blank" rel="external">
-          <span class="icon icon-sina-weibo"></span>
         </a>
       
     
