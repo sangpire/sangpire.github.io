@@ -48,7 +48,7 @@ less:
 # use url, not username
 social:
 - slug: email
-  url: #mailto:i@artifact.me
+  url: mailto:sangpire@gmail.com
 - slug: github
   url: https://github.com/sangpire
 - slug: twitter
@@ -59,17 +59,3 @@ social:
   url: # https://plus.google.com/+sangpire
 - slug: facebook
   url: # https://www.facebook.com/sangpire
-- slug: linkedin
-  url: # https://www.linkedin.com/in/buzun
-- slug: sina-weibo
-  url: http://weibo.com/otakism/
-- slug: tumblr
-  url: # http://artchen.tumblr.com
-- slug: dribbble
-  url: # https://dribbble.com/artchen
-- slug: pinterest
-  url: # https://www.pinterest.com/otakism/
-- slug: instagram
-  url: # https://instagram.com/otakism/
-- slug: behance
-  url: # https://www.behance.net/artchen
