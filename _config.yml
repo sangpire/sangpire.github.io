@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: notes.sangpire
-subtitle:
+title: 기억하지 못할 메모
+subtitle: Notes Can't Remeber.
 description:
 author: 변상필
 language: ko
@@ -63,7 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: typescript
+theme: hipaper
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
