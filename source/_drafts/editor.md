@@ -7,3 +7,7 @@ tags:
 
 - 어떤 에디터를 쓰고 싶은건지.
 - 어떤 기능을 좋아라 하는지.
+
+{% plantuml %}
+    Bob->Alice : hello
+{% endplantuml %}
