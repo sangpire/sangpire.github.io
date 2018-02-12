@@ -1,7 +1,7 @@
 ---
 title:  CSS
 date:   2016-04-19
-tags: css
+tags: [css, test]
 ---
 
 ## word-spacing

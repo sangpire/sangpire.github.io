@@ -2,6 +2,7 @@
 title: vim
 date: 2012/10/15
 updated: 2017/3/25
+tags: [vim, nowrap]
 ---
 
 # 설정과 관련된 내용들.

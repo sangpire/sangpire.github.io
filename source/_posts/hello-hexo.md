@@ -1,8 +1,10 @@
 ---
-title: Hello World
+title: Hello Hexo
+date: 2017-03-28
+tags: [hexo]
 ---
-
-> hexo 를 처음 시작할 때 기본적으로 존재하는 글.
+hexo 를 처음 시작할 때 기본적으로 존재하는 글.
+에서 새롭게 알게 된 것들을 채워보자.
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
@@ -39,3 +41,7 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/deployment.html)
+
+## 추가로 설치한 플러그인
+
+- hexo-browsersync
