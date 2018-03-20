@@ -57,9 +57,9 @@ h6 {
 a {
 	color: #1fa0ae;
 	outline: none;
-	-webkit-transition: all 0.14s ease 0s; 
-	   -moz-transition: all 0.14s ease 0s; 
-		 -o-transition: all 0.14s ease 0s; 
+	-webkit-transition: all 0.14s ease 0s;
+	   -moz-transition: all 0.14s ease 0s;
+		 -o-transition: all 0.14s ease 0s;
 	}
 a:hover,
 a:focus,
@@ -261,7 +261,7 @@ object {
 .site-title {
 	margin: 0;
 	font-size: 48px;
-	font-family: Oswald, "Microsoft Yahei", Arial, Helvetica, sans-serif;
+	font-family: 'Nanum Gothic', sans-serif;
 	text-transform: uppercase;
 	line-height: 1em;
 	}
@@ -1167,20 +1167,20 @@ ul.widget-tab-nav {
 	}
 
 .site-header-image {
-	max-height:800px; 
-	min-height:500px; 
+	max-height:800px;
+	min-height:500px;
 	overflow: hidden;
 	position: relative;
 }
 
-.blur {	
+.blur {
     filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
-    
+
     -webkit-filter: blur(11px); /* Chrome, Opera */
        -moz-filter: blur(11px);
-        -ms-filter: blur(11px);    
+        -ms-filter: blur(11px);
             filter: blur(11px);
-    
+
     filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=1, MakeShadow=false); /* IE6~IE9 */
 	}
 

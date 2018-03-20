@@ -11,6 +11,9 @@ navigation:
 - name: thinking
   slug: thinking
   url: /thinking
+- name: codes
+  slug: codes
+  url: /codes
 - name: Sites
   slug: sites
   url: /sites
