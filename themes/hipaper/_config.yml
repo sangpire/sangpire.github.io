@@ -8,6 +8,7 @@ menu:
   Archives: archives
   # Categories: categories
   Thinking: thinking
+  Codes: codes
   # Tags: tags
   # About: about
 rss: /atom.xml

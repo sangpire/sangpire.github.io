@@ -4,7 +4,9 @@ archive_b: "Archive: %s"
 archives: 글목록
 categories: 카테고리
 category: 카테고리
+codes: 코드 조각들
 comment: 댓글
+home: 첫 페이지
 newer: 이후 작성된 글
 next: 다음
 older: 이전 작성된 글
@@ -20,4 +22,3 @@ tagcloud: 전체 테그
 tags: 테그
 thinking: 생각들
 tweets: 트윗
-home: 첫 페이지
