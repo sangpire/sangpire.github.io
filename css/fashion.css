@@ -266,6 +266,7 @@ object {
 	line-height: 1em;
 	}
 .site-title a {
+	font-family: 'Nanum Pen Script', cursive;
 	color: #333;
 	text-decoration: none;
 	}
