@@ -1,5 +1,5 @@
 ---
-title: thinking
+title: 
 date: 2017-04-09 00:23:16
 ---
 
