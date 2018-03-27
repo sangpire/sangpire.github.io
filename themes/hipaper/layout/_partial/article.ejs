@@ -8,7 +8,7 @@
     <% } %>
     <div class="article-meta">
       <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
-      <%- partial('post/category') %> 
+      <%- partial('post/category') %>
       <%- partial('post/busuanzi-analytics',{index: index}) %>
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -51,6 +51,11 @@
   <% if (!index){ %>
     <%- partial('post/nav') %>
   <% } %>
+  <script src="https://utteranc.es/client.js"
+        repo="sangpire/sangpire.github.io"
+        issue-term="pathname"
+        async>
+  </script>
 </article>
 
 <!-- Table of Contents -->
