@@ -5,6 +5,21 @@ date: 2018-02-19 00:00:04
 
 # Shell Commands
 
+## python
+
+local Server 띄우기
+```
+python -m SimpleHTTPServer
+```
+
+## ipfw
+
+80 포트로 접근하는 요청을 8080 으로
+
+```
+sudo ipfw add 100 fwd 127.0.0.1,8080 tcp from any to any 80 in
+```
+
 ## nc
 
 클라이언트의 파일을 서버로 업로드
