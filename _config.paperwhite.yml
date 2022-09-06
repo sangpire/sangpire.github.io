@@ -1,0 +1,9 @@
+menu:
+  writing: /
+  codes: /codes
+  sites: /sites
+  thinking: /thinking
+
+giscus:
+  enable: true
+  repo: sangpire/sangpire.github.io
