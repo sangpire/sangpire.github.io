@@ -47,7 +47,8 @@
           <div class="post-content"><p>로컬 파일을 서버로 전송하려고 하니 <code>socat</code>이 가장 먼저 생각이 났습니다.<br>socat 은 Multipurpose relay (SOcket CAT) 이라고 합니다. ‘다목적 중계기’ !?</p>
 <p>원래 사용한적이 있던 명령어지만 또 까먹어서 사용 방법을 찾아봅니다.</p>
 <p>우선 <code>tldr</code> 로 사용방법을 살펴봅니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ tldr socat</span><br><span class="line"></span><br><span class="line">socat</span><br><span class="line"></span><br><span class="line">Multipurpose relay (SOcket CAT).</span><br><span class="line"></span><br><span class="line">- Listen to a port, wait for an incoming connection and transfer data to STDIO:</span><br><span class="line">    socat - TCP-LISTEN:8080,fork</span><br><span class="line"></span><br><span class="line">- Create a connection to a host and port, transfer data in STDIO to connected host:</span><br><span class="line">    socat - TCP4:www.domain.com:80</span><br><span class="line"></span><br><span class="line">- Forward incoming data of a local port to another host and port:</span><br><span class="line">    socat TCP-LISTEN:80,fork TCP4:www.domain.com:80</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ tldr socat</span><br><span class="line"></span><br><span class="line">socat</span><br><span class="line"></span><br><span class="line">Multipurpose relay (SOcket CAT).</span><br><span class="line"></span><br><span class="line">- Listen to a port, wait for an incoming connection and transfer data to STDIO:</span><br><span class="line">    socat - TCP-LISTEN:8080,fork</span><br><span class="line"></span><br><span class="line">- Create a connection to a host and port, transfer data in STDIO to connected host:</span><br><span class="line">    socat - TCP4:www.domain.com:80</span><br><span class="line"></span><br><span class="line">- Forward incoming data of a local port to another host and port:</span><br><span class="line">    socat TCP-LISTEN:80,fork TCP4:www.domain.com:80</span><br></pre></td></tr></table></figure>
+
 <p>난 파일을 전송하고 싶은건데 큰 도움이 안되니, man 페이지를 살펴봅니다.</p>
 <h3 id="우선-OPTIONS-중"><a href="#우선-OPTIONS-중" class="headerlink" title="우선 OPTIONS 중"></a>우선 OPTIONS 중</h3><ul>
 <li><code>-u</code></li>
@@ -74,39 +75,55 @@
 <p><code>create,create</code> 오타인가?..</p>
 <blockquote>
 <p><code>&lt;filename&gt;</code> must be a valid existing or not existing  path. If <code>&lt;filename&gt;</code> is a named pipe, <code>creat()</code> might block; if <code>&lt;filename&gt;</code> refers to a socket, this is an error.</p>
+</blockquote>
+<blockquote>
 <ul>
 <li>Option groups: <code>FD</code>,<code>REG</code>,<code>NAMED</code></li>
+</ul>
+</blockquote>
+<ul>
 <li>Useful options: <code>mode</code>, <code>user</code>,  <code>group</code>,  <code>unlink-early</code>,  <code>unlink-late</code>, <code>append</code></li>
 <li>See also: <code>OPEN</code>, <code>GOPEN</code></li>
 </ul>
-</blockquote>
 <h4 id="두번째-GOPEN-lt-filename-gt-ADDRESS-TYPE"><a href="#두번째-GOPEN-lt-filename-gt-ADDRESS-TYPE" class="headerlink" title="두번째, GOPEN:&lt;filename&gt; ADDRESS TYPE"></a>두번째, <code>GOPEN:&lt;filename&gt;</code> ADDRESS TYPE</h4><blockquote>
 <p>(Generic open) This address type tries to handle any file system entry except directories usefully. <code>&lt;filename&gt;</code> may be a relative or absolute path.<br>If it already exists, its type is checked. In case of a UNIX domain socket, socat connects; if connecting fails, socat assumes a datagram socket and uses <code>sendto()</code> calls.<br>If the entry is not a socket, socat opens it applying the <code>O_APPEND</code> flag.<br>If it does not exist, it is opened with flag <code>O_CREAT</code> as a regular file(example).</p>
 <ul>
 <li>Option groups: <code>FD</code>,<code>REG</code>,<code>SOCKET</code>,<code>NAMED</code>,<code>OPEN</code></li>
-<li>See also: <code>OPEN</code>, <code>CREATE</code>, <code>UNIX-CONNECT</code></li>
 </ul>
 </blockquote>
 <ul>
-<li>directories 를 제외하고 일반적인 파일 시스템 엔트리(= 무엇을 의미하는 걸까요?) 에 유용하다고 하네요.</li>
-<li><code>&lt;filename&gt;</code> 이 존재하면 뒤에 내용을 덧붙히고, 없으면 만들어주나 봅니다.</li>
+<li><p>See also: <code>OPEN</code>, <code>CREATE</code>, <code>UNIX-CONNECT</code></p>
+</li>
+<li><p>directories 를 제외하고 일반적인 파일 시스템 엔트리(&#x3D; 무엇을 의미하는 걸까요?) 에 유용하다고 하네요.</p>
+</li>
+<li><p><code>&lt;filename&gt;</code> 이 존재하면 뒤에 내용을 덧붙히고, 없으면 만들어주나 봅니다.</p>
+</li>
 </ul>
 <h4 id="세번째-OPEN-lt-filename-gt-ADDRESS-TYPE"><a href="#세번째-OPEN-lt-filename-gt-ADDRESS-TYPE" class="headerlink" title="세번째, OPEN:&lt;filename&gt; ADDRESS TYPE"></a>세번째, <code>OPEN:&lt;filename&gt;</code> ADDRESS TYPE</h4><blockquote>
 <p>Opens <code>&lt;filename&gt;</code> using the <code>open()</code> system call (example). This operation fails on UNIX domain sockets.</p>
+</blockquote>
+<blockquote>
 <p>Note: This address type is rarly useful in bidirectional mode.</p>
 <ul>
 <li>Option groups: <code>FD</code>,<code>REG</code>,<code>NAMED</code>,<code>OPEN</code></li>
-<li>Useful  options:  <code>creat</code>,  <code>excl</code>, <code>noatime</code>, <code>nofollow</code>, <code>append</code>, <code>rdonly</code>, <code>wronly</code>, <code>lock</code>, <code>readbytes</code>, <code>ignoreeof</code></li>
-<li>See also: <code>CREATE</code>, <code>GOPEN</code>, <code>UNIX-CONNECT</code></li>
 </ul>
 </blockquote>
 <ul>
-<li>오타 발견 ‘rarly’!!</li>
-<li>양방향 모드에선 거의 유용하지 않다고 합니다.</li>
+<li><p>Useful  options:  <code>creat</code>,  <code>excl</code>, <code>noatime</code>, <code>nofollow</code>, <code>append</code>, <code>rdonly</code>, <code>wronly</code>, <code>lock</code>, <code>readbytes</code>, <code>ignoreeof</code></p>
+</li>
+<li><p>See also: <code>CREATE</code>, <code>GOPEN</code>, <code>UNIX-CONNECT</code></p>
+</li>
+<li><p>오타 발견 ‘rarly’!!</p>
+</li>
+<li><p>양방향 모드에선 거의 유용하지 않다고 합니다.</p>
+</li>
 </ul>
 <h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>결과적으로 파일을 보내고자 하는 서버와 클라이언트 에서 실행한 명령어는 다음과 같습니다.</p>
-<p>서버에서, <code>GOPEN</code>을 사용했지만, <code>OPEN</code> 을 써도 될 듯.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ socat -u GOPEN:./source.file TCP:192.168.0.1:9999</span><br></pre></td></tr></table></figure></p>
-<p>클라이언트에서,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ socat -u TCP-LISTEN:9999 CREATE:target.file</span><br></pre></td></tr></table></figure></p>
+<p>서버에서, <code>GOPEN</code>을 사용했지만, <code>OPEN</code> 을 써도 될 듯.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ socat -u GOPEN:./source.file TCP:192.168.0.1:9999</span><br></pre></td></tr></table></figure>
+
+<p>클라이언트에서,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ socat -u TCP-LISTEN:9999 CREATE:target.file</span><br></pre></td></tr></table></figure>
 </div>
         </article>
         
