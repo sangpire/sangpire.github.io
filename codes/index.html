@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>기억하지 못할 메모</title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+  <body>
+    <main class="container">
+      <header class="header">
+    <div class="blog-title">
+        <h1><a href="/">기억하지 못할 메모</a></h1>
+        <p class="description"></p>
+    </div>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            <li class="menu-item">
+                <a href="/" class="menu-item-link">writing</a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/codes" class="menu-item-link">codes</a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/sites" class="menu-item-link">sites</a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/thinking" class="menu-item-link">thinking</a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+      <article class="post">
+          <div class="post-title">
+            <h2 class="title"></h2>
+          </div>
+          <div class="post-meta">
+            <span class="post-time">2018-02-19</span>
+          </div>
+          <div class="post-content"><h1 id="Shell-Commands"><a href="#Shell-Commands" class="headerlink" title="Shell Commands"></a>Shell Commands</h1><h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><p>local Server 띄우기<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m SimpleHTTPServer</span><br></pre></td></tr></table></figure></p>
+<h2 id="ipfw"><a href="#ipfw" class="headerlink" title="ipfw"></a>ipfw</h2><p>80 포트로 접근하는 요청을 8080 으로</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ipfw add 100 fwd 127.0.0.1,8080 tcp from any to any 80 in</span><br></pre></td></tr></table></figure>
+<h2 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h2><p>클라이언트의 파일을 서버로 업로드</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SERVER$ nc -l -p 9999 &gt; file.txt</span><br><span class="line">CLIENT$ nc SERVER-IP-ADDRESS 9999 &lt; file.txt</span><br></pre></td></tr></table></figure>
+<h2 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h2><p>32bit 인지 64bit 알고자 할 때</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ uname -i</span><br></pre></td></tr></table></figure>
+<h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><p>access log 중 응답 코드가 200 도 304도 302 도 아닌 로그 출력.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tail -f access.log | awk <span class="string">'&#123;if ($9 !~ /200|304|302/) print $0&#125;'</span></span><br></pre></td></tr></table></figure>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>git tag 삭제</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag -d 12345</span><br><span class="line">git push origin :refs/tags/12345</span><br></pre></td></tr></table></figure>
+</div>
+        </article>
+        
+        <script src="https://giscus.app/client.js"
+          data-repo=  sangpire/sangpire.github.io
+          data-repo-id="MDEwOlJlcG9zaXRvcnkzNTIwMzg4MTk="
+          data-category="General"
+          data-category-id="DIC_kwDOFPuvo84COOf2"
+          data-mapping="pathname"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="light"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async>
+        </script>
+        
+        <!-- <p class="footer">Made with ♥︎ by 변상필</p> -->
+      </main>
+  </body>
+</html>
